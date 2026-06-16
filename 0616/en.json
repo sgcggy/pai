@@ -1,0 +1,57 @@
+{
+  "nav_intro": "Introduction",
+  "nav_evolution": "Evolution",
+  "nav_tech": "Tech Stack",
+  "nav_case": "Case Studies",
+  "nav_future": "Future Vision",
+  "btn_explore": "Explore Tech Spec",
+  
+  "hero_eyebrow": "The Awakening of Physical AI",
+  "hero_h1": "AI, Finally Gains a Physical Body.",
+  "hero_subtext": "Beyond screens and chatbots. Meet the next generation of intelligence that perceives, decides, and acts in the real world.",
+  "btn_watch": "Watch AI in Action",
+  "btn_read": "Read Whitepaper",
+  "tag_loop": "Perception · Decision · Action",
+
+  "evo_title": "The Evolution of Automation",
+  "evo_1_title": "1st Gen: Rule-based Automation",
+  "evo_1_desc": "Repetitive, rigid coding without adaptation.",
+  "evo_2_title": "2nd Gen: Narrow AI & Robotics",
+  "evo_2_desc": "Machine learning applied to specific, limited tasks.",
+  "evo_3_title": "3rd Gen: Physical AI Era",
+  "evo_3_desc": "The ChatGPT Moment for the physical world. VLA (Vision-Language-Action) models enabling autonomous adaptation.",
+
+  "tech_title": "Anatomy of Physical AI",
+  "tech_1_title": "Robotics Foundation Models",
+  "tech_1_desc": "Natural language translated into joint control signals (e.g., Google RT-2, Project GR00T).",
+  "tech_2_title": "Edge AI & Low-Latency Network",
+  "tech_2_desc": "On-device AI processing within milliseconds (ms) without cloud dependency for real-time safety.",
+  "tech_3_title": "High-Precision Sensors & Actuators",
+  "tech_3_desc": "LiDAR, Vision sensors for human-like perception, paired with next-gen motors acting as synthetic muscles.",
+
+  "case_title": "Industrial Applications",
+  "case_1_title": "Smart Manufacturing",
+  "case_1_desc": "Autonomous factories co-operating with Siemens & NVIDIA Omniverse.",
+  "case_2_title": "Logistics & Supply Chain",
+  "case_2_desc": "Next-gen Autonomous Mobile Robots (AMR) managing warehouses 24/7.",
+  "case_3_title": "Humanoid Robotics",
+  "case_3_desc": "Human-shaped robots (Tesla Optimus, Figure 01) entering the workforce.",
+  "case_4_title": "Autonomous Mobility",
+  "case_4_desc": "Advanced Waymo and Tesla FSD systems redefining urban transit.",
+
+  "future_eyebrow": "The Next Horizon",
+  "future_title": "Challenges & Future",
+  "future_desc": "As physical AI integrates deeper into our infrastructure, we face new frontiers of technical and ethical challenges.",
+  "btn_join": "Join the Initiative",
+
+  "acc_1_title": "Operational Cyber Security",
+  "acc_1_desc": "Shifting from data leaks to preventing physical misjudgments and unauthorized machine takeovers. Securing the physical layer is paramount.",
+  "acc_2_title": "Spatial Computing & Digital Twins",
+  "acc_2_desc": "Simulating millions of environments in virtual worlds (e.g. NVIDIA Omniverse) before physical deployment to ensure absolute safety and efficiency.",
+  "acc_3_title": "Technical Bottlenecks",
+  "acc_3_desc": "Solving the data scarcity issue in the physical world and overcoming the power/battery dilemma for heavy edge computing.",
+
+  "footer_privacy": "Privacy Policy",
+  "footer_terms": "Terms of Service",
+  "footer_copyright": "© 2026 Physical AI Research. All rights reserved."
+}

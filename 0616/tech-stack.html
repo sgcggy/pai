@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical AI : Tech Stack</title>
+    <meta name="description" content="디지털 세계를 넘어 물리적 현실로 확장되는 인공지능, 피지컬 AI의 모든 것을 소개합니다.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="glass-header">
+        <div class="logo">P-AI</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-i18n="nav_intro">Introduction</a></li>
+                <li><a href="evolution.html" data-i18n="nav_evolution">Evolution</a></li>
+                <li><a href="tech-stack.html" data-i18n="nav_tech">Tech Stack</a></li>
+                <li><a href="case-studies.html" data-i18n="nav_case">Case Studies</a></li>
+                <li><a href="future-vision.html" data-i18n="nav_future">Future Vision</a></li>
+                <li><a href="board.html" data-i18n="nav_board">Community</a></li>
+            </ul>
+        </nav>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <button class="btn-glow" data-i18n="btn_explore">Explore Tech Spec</button>
+            <button id="lang-toggle" class="lang-btn">KO</button>
+        </div>
+    </header>
+
+    <main class="scroll-container">
+        <!-- 3. Tech Stack -->
+        <section id="tech-stack" class="full-screen-section bento-grid-section">
+            <h2 class="section-title" data-i18n="tech_title">Anatomy of Physical AI</h2>
+            <div class="bento-grid tech-stack-grid">
+                <div class="bento-card tech-card">
+                    <h3 data-i18n="tech_1_title">Robotics Foundation Models</h3>
+                    <p data-i18n="tech_1_desc">Natural language translated into joint control signals (e.g., Google RT-2, Project GR00T).</p>
+                </div>
+                <div class="bento-card tech-card">
+                    <h3 data-i18n="tech_2_title">Edge AI & Low-Latency Network</h3>
+                    <p data-i18n="tech_2_desc">On-device AI processing within milliseconds (ms) without cloud dependency for real-time safety.</p>
+                </div>
+                <div class="bento-card tech-card">
+                    <h3 data-i18n="tech_3_title">High-Precision Sensors & Actuators</h3>
+                    <p data-i18n="tech_3_desc">LiDAR, Vision sensors for human-like perception, paired with next-gen motors acting as synthetic muscles.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="i18n.js"></script>
+    <script src="interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Physical AI 웹사이트 구축 기획서</title>
+    <style>
+        body { font-family: 'Malgun Gothic', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 40px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header { text-align: center; border-bottom: 2px solid #00F0FF; padding-bottom: 20px; margin-bottom: 40px; }
+        h1 { color: #0D0F12; font-size: 28px; margin-bottom: 10px; }
+        .subtitle { color: #64748B; font-size: 16px; }
+        h2 { color: #2D5BFF; font-size: 20px; border-left: 4px solid #00F0FF; padding-left: 10px; margin-top: 40px; }
+        h3 { color: #0D0F12; font-size: 16px; margin-top: 20px; }
+        p, li { font-size: 14px; color: #444; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; color: #333; }
+        .footer { text-align: center; margin-top: 50px; font-size: 12px; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
+        .page-break { page-break-before: always; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Physical AI (지능의 물리적 구현) 웹사이트 구축 기획서</h1>
+            <div class="subtitle">문서 버전: 1.0 | 작성일: 2026. 06. 16 | 작성자: 수석 UX/UI 디렉터</div>
+        </div>
+
+        <h2>1. 프로젝트 개요 (Project Overview)</h2>
+        <p>본 프로젝트는 디지털 세계를 넘어 현실 세계와 상호작용하는 차세대 인공지능인 '피지컬 AI(Physical AI)'의 개념과 산업적 가치를 소개하는 B2B 대상 하이엔드 프로모션 웹사이트를 구축하는 것을 목적으로 합니다.</p>
+        
+        <h2>2. 기획 의도 및 목표 (Purpose & Goals)</h2>
+        <ul>
+            <li><strong>전문성 강화:</strong> 첨단 기술력을 시각적으로 입증하여 기업 고객(B2B) 및 투자자에게 강한 신뢰감 부여.</li>
+            <li><strong>정보의 구조화:</strong> 복잡한 AI 기술 스택과 활용 사례를 Bento Grid 및 아코디언 UI를 통해 직관적으로 전달.</li>
+            <li><strong>글로벌 접근성 확보:</strong> 실시간 다국어 번역 시스템 및 시각장애인을 위한 웹 접근성(Aria-label) 최적화.</li>
+        </ul>
+
+        <h2>3. 타겟 오디언스 (Target Audience)</h2>
+        <p>스마트 제조, 물류, 휴머노이드, 자율주행 모빌리티 분야의 혁신을 주도하고자 하는 <strong>기업 임원진(C-Level), 기술 의사결정자(CTO), 그리고 연구원 및 파트너사.</strong></p>
+
+        <h2>4. 핵심 기능 명세 (Key Features Requirements)</h2>
+        <table>
+            <tr>
+                <th width="30%">구분</th>
+                <th>상세 기능 및 설명</th>
+            </tr>
+            <tr>
+                <td>다국어 지원 (i18n)</td>
+                <td>한국어/영어 실시간 전환 토글. 사용자 언어 설정 로컬 스토리지 보존.</td>
+            </tr>
+            <tr>
+                <td>인터랙티브 애니메이션</td>
+                <td>Intersection Observer를 활용한 Scroll-reveal(Fade-in) 및 무한 루프 캐러셀.</td>
+            </tr>
+            <tr>
+                <td>게시판 (Community)</td>
+                <td>Firebase Firestore 기반의 실시간 데이터베이스 연동. 비밀번호 기반의 CRUD(작성, 읽기, 수정, 삭제) 지원.</td>
+            </tr>
+            <tr>
+                <td>반응형 웹 (RWD)</td>
+                <td>CSS Media Queries를 통한 데스크탑(1024px), 태블릿, 모바일(768px 이하) 환경 완벽 대응.</td>
+            </tr>
+        </table>
+
+        <div class="page-break"></div>
+
+        <h2>5. 디자인 시스템 (Design System)</h2>
+        <ul>
+            <li><strong>Color Palette:</strong> 
+                <ul>
+                    <li>Background: Dark Onyx (#0D0F12) - 몰입감 및 미래지향적 분위기 조성.</li>
+                    <li>Accent Primary: Neon Cyan (#00F0FF) - 사이버펑크 톤의 핵심 기술 강조.</li>
+                    <li>Accent Secondary: Cyber Blue (#2D5BFF) - 시각적 깊이감 및 신뢰감 상징.</li>
+                </ul>
+            </li>
+            <li><strong>Typography:</strong> 
+                <ul>
+                    <li>Heading: Space Grotesk (기하학적이고 미래적인 느낌)</li>
+                    <li>Body: Inter (최고의 가독성을 자랑하는 모던 폰트)</li>
+                </ul>
+            </li>
+            <li><strong>UI Concept:</strong> Glassmorphism(반투명 유리 질감), Bento Grid(정보의 모듈화), Dark Theme.</li>
+        </ul>
+
+        <h2>6. 사이트 맵 (Sitemap)</h2>
+        <table>
+            <tr>
+                <th width="25%">1 Depth (페이지)</th>
+                <th>주요 내용 및 컴포넌트</th>
+            </tr>
+            <tr>
+                <td>Introduction<br>(index.html)</td>
+                <td>히어로 섹션, Catchphrase, 시네마틱 비주얼 루프, 백서 다운로드 버튼</td>
+            </tr>
+            <tr>
+                <td>Evolution<br>(evolution.html)</td>
+                <td>자동화 기술의 세대별 발전을 보여주는 수직 타임라인(Vertical Timeline)</td>
+            </tr>
+            <tr>
+                <td>Tech Stack<br>(tech-stack.html)</td>
+                <td>로보틱스 파운데이션 모델, 엣지 AI, 정밀 센서 등의 3단 Bento Grid 카드</td>
+            </tr>
+            <tr>
+                <td>Case Studies<br>(case-studies.html)</td>
+                <td>제조, 물류, 휴머노이드 등 외부 공식 레퍼런스로 연결되는 무한 루프 카드 슬라이더</td>
+            </tr>
+            <tr>
+                <td>Future Vision<br>(future-vision.html)</td>
+                <td>사이버 보안 및 디지털 트윈 등의 과제를 다루는 아코디언(Accordion) UI</td>
+            </tr>
+            <tr>
+                <td>Community<br>(board.html)</td>
+                <td>사용자 참여형 실시간 소통마당(Firebase 연동 게시판)</td>
+            </tr>
+        </table>
+
+        <h2>7. 기대 효과 (Expected Outcome)</h2>
+        <p>본 웹사이트는 단순한 브로셔 역할을 넘어, 방문객에게 시각적 쾌감과 명확한 수치적 비전을 제시합니다. 이를 통해 첨단 AI 기술에 대한 <strong>기업 파트너십 문의 증가(Lead Generation)</strong> 및 브랜드의 <strong>글로벌 하이테크 리더십 포지셔닝</strong>에 크게 기여할 것입니다.</p>
+
+        <div class="footer">
+            본 문서는 구글 제미나이(Google Gemini) AI 에이전트에 의해 작성 및 검수되었습니다.<br>
+            CONFIDENTIAL - Physical AI Research
+        </div>
+    </div>
+</body>
+</html>

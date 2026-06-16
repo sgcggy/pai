@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical AI : Community Board</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .board-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 150px auto 50px;
+            padding: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            backdrop-filter: blur(12px);
+        }
+        .board-header { text-align: center; margin-bottom: 2rem; }
+        .board-header h2 { color: var(--accent-cyan); font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .board-header p { color: var(--text-muted); }
+        
+        .post-form { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+        .input-group { display: flex; gap: 1rem; }
+        .input-group input { flex: 1; }
+        input, textarea {
+            background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border);
+            color: #fff; padding: 1rem; border-radius: 8px; font-family: var(--font-body);
+        }
+        input:focus, textarea:focus { outline: none; border-color: var(--accent-cyan); }
+        textarea { resize: vertical; min-height: 100px; }
+        
+        .post-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .post-item {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+            padding: 1.5rem; border-radius: 8px; position: relative;
+        }
+        .post-meta { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem; }
+        .post-content { color: #fff; line-height: 1.6; white-space: pre-wrap; }
+        .post-actions { position: absolute; top: 1.2rem; right: 1.5rem; display: flex; gap: 0.5rem; }
+        .action-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem; transition: color 0.3s; }
+        .action-btn:hover { color: var(--accent-cyan); }
+    </style>
+</head>
+<body>
+    <header class="glass-header">
+        <div class="logo">P-AI</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-i18n="nav_intro">Introduction</a></li>
+                <li><a href="evolution.html" data-i18n="nav_evolution">Evolution</a></li>
+                <li><a href="tech-stack.html" data-i18n="nav_tech">Tech Stack</a></li>
+                <li><a href="case-studies.html" data-i18n="nav_case">Case Studies</a></li>
+                <li><a href="future-vision.html" data-i18n="nav_future">Future Vision</a></li>
+                <li><a href="board.html" data-i18n="nav_board">Community</a></li>
+            </ul>
+        </nav>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <button class="btn-glow" data-i18n="btn_explore">Explore Tech Spec</button>
+            <button id="lang-toggle" class="lang-btn">KO</button>
+        </div>
+    </header>
+
+    <main class="scroll-container">
+        <div class="board-container">
+            <div class="board-header">
+                <h2 data-i18n="board_title">Community Board</h2>
+                <p data-i18n="board_desc">Share your thoughts on Physical AI.</p>
+            </div>
+
+            <!-- 글쓰기 폼 -->
+            <div class="post-form">
+                <div class="input-group">
+                    <input type="text" id="writer" placeholder="Name" data-i18n="board_writer">
+                    <input type="password" id="pwd" placeholder="Password (Max 6)" maxlength="6" data-i18n="board_pwd">
+                </div>
+                <textarea id="content" placeholder="Content" data-i18n="board_content"></textarea>
+                <button class="btn-glow" id="submitBtn" data-i18n="btn_submit" style="align-self: flex-end;">Post</button>
+            </div>
+
+            <!-- 게시글 목록 -->
+            <div class="post-list" id="postList">
+                <p style="text-align:center; color:#64748B;">Loading posts...</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="i18n.js"></script>
+    <script src="interactions.js"></script>
+
+    <!-- Firebase v9 모듈 방식 연동 -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+        // =====================================================================
+        // [Firebase 연동 설정]
+        // 파이어베이스 콘솔에서 프로젝트 생성 후 아래 설정값을 복사하여 붙여넣으세요.
+        // =====================================================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyCqsWe3VOavif3Wn6-3Le_q1hswwF0L878",
+            authDomain: "storage-58536.firebaseapp.com",
+            projectId: "storage-58536",
+            storageBucket: "storage-58536.firebasestorage.app",
+            messagingSenderId: "456039988034",
+            appId: "1:456039988034:web:51e7adb2ea02ded400e6db",
+            measurementId: "G-JM58QB44XP"
+        };
+
+        // Firebase 초기화 방어 코드 (설정이 안된 경우 경고 표시)
+        let db;
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            loadPosts();
+        } catch (e) {
+            document.getElementById('postList').innerHTML = '<p style="color:#ff4444; text-align:center;">Firebase 설정이 필요합니다. 안내 가이드를 참고하여 API 키를 입력해주세요.</p>';
+        }
+
+        // 게시글 등록
+        document.getElementById('submitBtn').addEventListener('click', async () => {
+            const writer = document.getElementById('writer').value.trim();
+            const pwd = document.getElementById('pwd').value.trim();
+            const content = document.getElementById('content').value.trim();
+
+            if (!writer || !pwd || !content) {
+                alert('모든 항목(작성자, 비밀번호, 내용)을 입력해주세요.');
+                return;
+            }
+
+            try {
+                await addDoc(collection(db, "posts"), {
+                    writer: writer,
+                    pwd: pwd,
+                    content: content,
+                    timestamp: serverTimestamp()
+                });
+                document.getElementById('writer').value = '';
+                document.getElementById('pwd').value = '';
+                document.getElementById('content').value = '';
+                loadPosts();
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('게시글 등록에 실패했습니다. Firebase 데이터베이스 규칙을 확인하세요.');
+            }
+        });
+
+        // 게시글 목록 불러오기
+        async function loadPosts() {
+            if(!db) return;
+            const postList = document.getElementById('postList');
+            postList.innerHTML = '';
+
+            const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
+            try {
+                const querySnapshot = await getDocs(q);
+                if (querySnapshot.empty) {
+                    postList.innerHTML = '<p style="text-align:center; color:#64748B;">등록된 게시글이 없습니다.</p>';
+                    return;
+                }
+
+                querySnapshot.forEach((docSnap) => {
+                    const data = docSnap.data();
+                    const date = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleString() : '방금 전';
+                    
+                    const postDiv = document.createElement('div');
+                    postDiv.className = 'post-item hidden-reveal visible';
+                    postDiv.innerHTML = `
+                        <div class="post-meta">
+                            <span><strong>${data.writer}</strong></span>
+                            <span>${date}</span>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn edit-btn" data-id="${docSnap.id}" data-pwd="${data.pwd}">수정</button>
+                            <button class="action-btn del-btn" data-id="${docSnap.id}" data-pwd="${data.pwd}">삭제</button>
+                        </div>
+                        <div class="post-content">${data.content}</div>
+                    `;
+                    postList.appendChild(postDiv);
+                });
+
+                // 수정/삭제 버튼 이벤트 리스너 등록
+                document.querySelectorAll('.del-btn').forEach(btn => {
+                    btn.addEventListener('click', deletePost);
+                });
+                document.querySelectorAll('.edit-btn').forEach(btn => {
+                    btn.addEventListener('click', editPost);
+                });
+            } catch (e) {
+                postList.innerHTML = '<p style="color:#ff4444; text-align:center;">데이터를 불러오는 데 실패했습니다.</p>';
+            }
+        }
+
+        // 게시글 삭제
+        async function deletePost(e) {
+            const id = e.target.getAttribute('data-id');
+            const realPwd = e.target.getAttribute('data-pwd');
+            const inputPwd = prompt('게시글을 삭제하시려면 비밀번호를 입력하세요:');
+            
+            if (inputPwd === null) return;
+            if (inputPwd === realPwd) {
+                await deleteDoc(doc(db, "posts", id));
+                loadPosts();
+            } else {
+                alert('비밀번호가 일치하지 않습니다.');
+            }
+        }
+
+        // 게시글 수정
+        async function editPost(e) {
+            const id = e.target.getAttribute('data-id');
+            const realPwd = e.target.getAttribute('data-pwd');
+            const inputPwd = prompt('게시글을 수정하시려면 비밀번호를 입력하세요:');
+            
+            if (inputPwd === null) return;
+            if (inputPwd === realPwd) {
+                const newContent = prompt('새로운 내용을 입력하세요:');
+                if (newContent && newContent.trim() !== '') {
+                    await updateDoc(doc(db, "posts", id), {
+                        content: newContent
+                    });
+                    loadPosts();
+                }
+            } else {
+                alert('비밀번호가 일치하지 않습니다.');
+            }
+        }
+    </script>
+</body>
+</html>

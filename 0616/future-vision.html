@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical AI : Future Vision</title>
+    <meta name="description" content="디지털 세계를 넘어 물리적 현실로 확장되는 인공지능, 피지컬 AI의 모든 것을 소개합니다.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="glass-header">
+        <div class="logo">P-AI</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-i18n="nav_intro">Introduction</a></li>
+                <li><a href="evolution.html" data-i18n="nav_evolution">Evolution</a></li>
+                <li><a href="tech-stack.html" data-i18n="nav_tech">Tech Stack</a></li>
+                <li><a href="case-studies.html" data-i18n="nav_case">Case Studies</a></li>
+                <li><a href="future-vision.html" data-i18n="nav_future">Future Vision</a></li>
+                <li><a href="board.html" data-i18n="nav_board">Community</a></li>
+            </ul>
+        </nav>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <button class="btn-glow" data-i18n="btn_explore">Explore Tech Spec</button>
+            <button id="lang-toggle" class="lang-btn">KO</button>
+        </div>
+    </header>
+
+    <main class="scroll-container">
+        <!-- 5. The Next Horizon -->
+        <section id="future-vision" class="full-screen-section horizon-section">
+            <div class="horizon-container">
+                <div class="horizon-intro">
+                    <p class="eyebrow" data-i18n="future_eyebrow">The Next Horizon</p>
+                    <h2 class="section-title" data-i18n="future_title">Challenges & Future</h2>
+                    <p data-i18n="future_desc">As physical AI integrates deeper into our infrastructure, we face new frontiers of technical and ethical challenges.</p>
+                    <button class="btn-glow large-btn" style="margin-top: 2rem;" data-i18n="btn_join">Join the Initiative</button>
+                </div>
+                <div class="horizon-accordion">
+                    <details class="accordion-item" open>
+                        <summary data-i18n="acc_1_title">Operational Cyber Security</summary>
+                        <div class="accordion-content">
+                            <p data-i18n="acc_1_desc">Shifting from data leaks to preventing physical misjudgments and unauthorized machine takeovers. Securing the physical layer is paramount.</p>
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary data-i18n="acc_2_title">Spatial Computing & Digital Twins</summary>
+                        <div class="accordion-content">
+                            <p data-i18n="acc_2_desc">Simulating millions of environments in virtual worlds (e.g. NVIDIA Omniverse) before physical deployment to ensure absolute safety and efficiency.</p>
+                        </div>
+                    </details>
+                    <details class="accordion-item">
+                        <summary data-i18n="acc_3_title">Technical Bottlenecks</summary>
+                        <div class="accordion-content">
+                            <p data-i18n="acc_3_desc">Solving the data scarcity issue in the physical world and overcoming the power/battery dilemma for heavy edge computing.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            
+            <footer class="minimal-footer">
+                <div class="footer-links">
+                    <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="footer_terms">Terms of Service</a>
+                    <div class="social-links">
+                        <a href="#">X (Twitter)</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+                <p data-i18n="footer_copyright">&copy; 2026 Physical AI Research. All rights reserved.</p>
+            </footer>
+        </section>
+    </main>
+    <script src="i18n.js"></script>
+    <script src="interactions.js"></script>
+</body>
+</html>

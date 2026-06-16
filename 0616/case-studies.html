@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical AI : Case Studies</title>
+    <meta name="description" content="디지털 세계를 넘어 물리적 현실로 확장되는 인공지능, 피지컬 AI의 모든 것을 소개합니다.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="glass-header">
+        <div class="logo">P-AI</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-i18n="nav_intro">Introduction</a></li>
+                <li><a href="evolution.html" data-i18n="nav_evolution">Evolution</a></li>
+                <li><a href="tech-stack.html" data-i18n="nav_tech">Tech Stack</a></li>
+                <li><a href="case-studies.html" data-i18n="nav_case">Case Studies</a></li>
+                <li><a href="future-vision.html" data-i18n="nav_future">Future Vision</a></li>
+                <li><a href="board.html" data-i18n="nav_board">Community</a></li>
+            </ul>
+        </nav>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <button class="btn-glow" data-i18n="btn_explore">Explore Tech Spec</button>
+            <button id="lang-toggle" class="lang-btn">KO</button>
+        </div>
+    </header>
+
+    <main class="scroll-container">
+        <!-- 4. Case Studies -> Industrial Applications -->
+        <section id="case-studies" class="full-screen-section applications-section">
+            <h2 class="section-title" data-i18n="case_title">Industrial Applications</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Original set of cards -->
+                    <div class="app-card" onclick="window.open('https://www.nvidia.com/en-us/omniverse/', '_blank')">
+                        <div class="card-media manufacturing-media" role="img" aria-label="Futuristic smart manufacturing factory automated by AI"></div>
+                        <div class="card-overlay">
+                            <h3 data-i18n="case_1_title">Smart Manufacturing</h3>
+                            <p data-i18n="case_1_desc">Autonomous factories co-operating with Siemens & NVIDIA Omniverse.</p>
+                        </div>
+                    </div>
+                    <div class="app-card" onclick="window.open('https://agilityrobotics.com/news/', '_blank')">
+                        <div class="card-media logistics-media" role="img" aria-label="Autonomous mobile robots managing a warehouse logistics system"></div>
+                        <div class="card-overlay">
+                            <h3 data-i18n="case_2_title">Logistics & Supply Chain</h3>
+                            <p data-i18n="case_2_desc">Next-gen Autonomous Mobile Robots (AMR) managing warehouses 24/7.</p>
+                        </div>
+                    </div>
+                    <div class="app-card" onclick="window.open('https://www.figure.ai/', '_blank')">
+                        <div class="card-media humanoid-media" role="img" aria-label="Humanoid robot standing in an office environment"></div>
+                        <div class="card-overlay">
+                            <h3 data-i18n="case_3_title">Humanoid Robotics</h3>
+                            <p data-i18n="case_3_desc">Human-shaped robots (Tesla Optimus, Figure 01) entering the workforce.</p>
+                        </div>
+                    </div>
+                    <div class="app-card" onclick="window.open('https://waymo.com/', '_blank')">
+                        <div class="card-media mobility-media" role="img" aria-label="Autonomous mobility car driving in a futuristic city at night"></div>
+                        <div class="card-overlay">
+                            <h3 data-i18n="case_4_title">Autonomous Mobility</h3>
+                            <p data-i18n="case_4_desc">Advanced Waymo and Tesla FSD systems redefining urban transit.</p>
+                        </div>
+                    </div>
+                    <!-- Duplicate set for infinite loop -->
+                    <div class="app-card" onclick="window.open('https://www.nvidia.com/en-us/omniverse/', '_blank')">
+                        <div class="card-media manufacturing-media" role="img" aria-label="Futuristic smart manufacturing factory automated by AI"></div>
+                        <div class="card-overlay">
+                            <h3 data-i18n="case_1_title">Smart Manufacturing</h3>
+                            <p data-i18n="case_1_desc">Autonomous factories co-operating with Siemens & NVIDIA Omniverse.</p>
+                        </div>
+                    </div>
+                    <div class="app-card" onclick="window.open('https://agilityrobotics.com/news/', '_blank')">
+                        <div class="card-media logistics-media" role="img" aria-label="Autonomous mobile robots managing a warehouse logistics system"></div>
+                        <div class="card-overlay">
+                            <h3 data-i18n="case_2_title">Logistics & Supply Chain</h3>
+                            <p data-i18n="case_2_desc">Next-gen Autonomous Mobile Robots (AMR) managing warehouses 24/7.</p>
+                        </div>
+                    </div>
+                    <div class="app-card" onclick="window.open('https://www.figure.ai/', '_blank')">
+                        <div class="card-media humanoid-media" role="img" aria-label="Humanoid robot standing in an office environment"></div>
+                        <div class="card-overlay">
+                            <h3 data-i18n="case_3_title">Humanoid Robotics</h3>
+                            <p data-i18n="case_3_desc">Human-shaped robots (Tesla Optimus, Figure 01) entering the workforce.</p>
+                        </div>
+                    </div>
+                    <div class="app-card" onclick="window.open('https://waymo.com/', '_blank')">
+                        <div class="card-media mobility-media" role="img" aria-label="Autonomous mobility car driving in a futuristic city at night"></div>
+                        <div class="card-overlay">
+                            <h3 data-i18n="case_4_title">Autonomous Mobility</h3>
+                            <p data-i18n="case_4_desc">Advanced Waymo and Tesla FSD systems redefining urban transit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="i18n.js"></script>
+    <script src="interactions.js"></script>
+</body>
+</html>
